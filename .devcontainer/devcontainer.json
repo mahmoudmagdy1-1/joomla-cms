@@ -1,0 +1,17 @@
+{
+    "name": "Joomla CMS Development",
+    "dockerFile": "Dockerfile",
+    "remoteUser": "vscode",
+    "workspaceFolder": "/workspaces/joomla-cms",
+    "settings": {
+        "php.validate.executablePath": "/usr/bin/php"
+    },
+    "extensions": [
+        "bmewburn.vscode-intelephense-client", // PHP IntelliSense
+        "felixfbecker.php-debug",             // PHP Debugging
+        "eamodio.gitlens",                    // Git integration
+        "dbaeumer.vscode-eslint"              // JavaScript linting
+    ],
+    "forwardedPorts": [8080],
+    "postCreateCommand": "bash .devcontainer/post-create.sh"
+}
