@@ -114,8 +114,10 @@ echo '<Directory /workspaces/joomla-cms>
 </Directory>' | sudo tee -a /etc/apache2/apache2.conf
 service apache2 restart
 
-# Set correct ownership for all web files to prevent permission errors
-chown -R www-data:www-data $JOOMLA_ROOT
+# Set the group to www-data and enforce group permissions
+echo "--> Applying final group ownership and permissions..."
+chgrp -R www-data $JOOMLA_ROOT
+chmod -R g+rws $JOOMLA_ROOT
 
 echo "✅ Environment finalized."
 
