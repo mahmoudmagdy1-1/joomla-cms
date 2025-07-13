@@ -16,7 +16,7 @@ ADMIN_EMAIL="admin@example.org"
 JOOMLA_ROOT="/workspaces/joomla-cms"
 
 # Allow git commands to run safely in the container
-git config --global --add safe.directory "$JOOMLA_ROOT"
+git config --global --add safe.directory $JOOMLA_ROOT
 
 # --- 1. Wait for MariaDB Service ---
 echo "--> Waiting for MariaDB to become available..."
@@ -108,7 +108,7 @@ npx cypress install
 sed -i -e "s|baseUrl:.*|baseUrl: 'http://localhost:80',|" -e "s/db_host: 'localhost'/db_host: 'mysql'/g" -e "s/db_user: 'root'/db_user: 'joomla_ut'/g" -e "s/db_password: ''/db_password: 'joomla_ut'/g" cypress.config.js
 
 # Set correct ownership for all web files to prevent permission errors
-chown -R www-data:www-data "$JOOMLA_ROOT"
+chown -R www-data:www-data $JOOMLA_ROOT
 
 # Restart Apache to apply all changes
 echo '<Directory /workspaces/joomla-cms>
